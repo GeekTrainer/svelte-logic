@@ -1,0 +1,19 @@
+{
+    "options": [
+        {
+            "name": "Rental skis",
+            "price": 150,
+            "onSale": true
+        },
+        {
+            "name": "Chalet access",
+            "price": 250,
+            "onSale": true
+        },
+        {
+            "name": "Lessons",
+            "price": 175,
+            "onSale": false
+        }
+    ]
+}
