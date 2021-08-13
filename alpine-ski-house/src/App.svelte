@@ -1,46 +1,45 @@
 <script>
-	function sleep() {
-		return new Promise(res => setTimeout(res, 4000))
-	}
-
-	// TODO: Add loadData function
-	async function loadData() {
-		// await sleep();
-		const response = await fetch("./data.json");
-		const json = await response.json();
-		return json.options;
-	}
+	let options = [
+		{
+			name: "Rental skis",
+			price: 150,
+			onSale: true,
+		},
+		{
+			name: "Chalet access",
+			price: 250,
+			onSale: true,
+		},
+		{
+			name: "Lessons",
+			price: 175,
+			onSale: false,
+		},
+	];
 </script>
 
 <main>
 	<h1>Alpine Ski House</h1>
-	<!--TODO: Add await block-->
-	{#await loadData()}
-		Loading data...
-	{:then options}
-		<h2>Select your options</h2>
-		<h3>There are {options.length} options available</h3>
-		<!--TODO: Add code to display options-->
-		{#each options as option}
-			<div class="row">
-				<div>
-					{option.name}
-				</div>
-				<div>
-					<!--TODO: Add sale display-->
-					{#if option.onSale}
-						On sale!
-					{:else}
-						Order soon!
-					{/if}
-				</div>
-				<div>
-					§{option.price}
-				</div>
+	<h2>There are {options.length} options available</h2>
+	<!--TODO: Add code to display options-->
+	{#each options as option}
+		<div class="row">
+			<div>
+				{option.name}
 			</div>
-		{/each}
-
-	{/await}
+			<div>
+				<!--TODO: Add sale display-->
+				{#if option.onSale}
+					On sale!
+				{:else}
+					Order soon!
+				{/if}
+			</div>
+			<div>
+				§{option.price}
+			</div>
+		</div>
+	{/each}
 </main>
 
 <style>
